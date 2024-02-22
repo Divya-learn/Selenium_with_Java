@@ -9,7 +9,7 @@ public class Frames_Lightbox_Actionclass {
 
 	public static void main(String[] args) {
 
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\ADMIN\\eclipse-workspace\\Learning_java_selenium\\drivers\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\ADMIN\\git\\repository\\Learning_java_selenium\\drivers\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 	
 	/*	driver.get("https://omayo.blogspot.com/");
@@ -24,7 +24,10 @@ public class Frames_Lightbox_Actionclass {
 		
 		//driver.get("http://localhost/opencart/upload/");
 		//driver.get("https://demo.opencart.com/");
-		driver.get("https://omayo.blogspot.com/");  
+		
+		
+		
+	/*	driver.get("https://omayo.blogspot.com/");  
 		
 		driver.manage().window().maximize();
 		
@@ -41,13 +44,32 @@ public class Frames_Lightbox_Actionclass {
 		
 		/*a.moveToElement(selenium143).perform();
 		
-		a.click(selenium143).perform(); */
+		a.click(selenium143).perform(); 
 		
 		//optimizing above two into single line
 		a.moveToElement(selenium143).click(selenium143).build().perform(); //we are using build here because we are performing 2 action(moveToElement,click) in one single line
 		//If you want to perform two action in one single line better to use build
+	
+	*/
+		
+		//clickAndHold(), moveToElement() and release()
+		
+		driver.get("http://dhtmlgoodies.com/scripts/drag-drop-custom/demo-drag-drop-3.html");
+		
+		Actions a = new Actions(driver);
+		WebElement Washingtonmovigfromcapitals= driver.findElement(By.id("box3"));
+		WebElement WashingtonmovingtoItaly = driver.findElement(By.id("box106"));
+		
+		a.clickAndHold(Washingtonmovigfromcapitals).moveToElement(WashingtonmovingtoItaly).release().build().perform();
 		
 		
+		WebElement WashigtonfromItaly = driver.findElement(By.xpath("//div[@id='box3']"));
+		WebElement Washigtonmovingtocapitals = driver.findElement(By.xpath("//div[@id='capitals']/p"));
+		
+		a.clickAndHold(WashigtonfromItaly).moveToElement(Washigtonmovingtocapitals).release().build().perform();
+		
+		//instead use DragAndDrop  a.dragAndDrop(From,to).perform()
+		 
 		
 		
 		
